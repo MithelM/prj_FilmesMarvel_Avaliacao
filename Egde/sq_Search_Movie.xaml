@@ -2,13 +2,13 @@
   <x:Members>
     <x:Property Name="arg_in_strMovieName" Type="InArgument(x:String)" />
     <x:Property Name="arg_in_strUrlRotten" Type="InArgument(x:String)" />
-    <x:Property Name="arg_out_intTomatometer" Type="InArgument(x:Int32)" />
-    <x:Property Name="arg_out_intAudience" Type="InArgument(x:Int32)" />
+    <x:Property Name="arg_out_intTomatometer" Type="OutArgument(x:Int32)" />
+    <x:Property Name="arg_out_intAudience" Type="OutArgument(x:Int32)" />
   </x:Members>
   <VisualBasic.Settings>
     <x:Null />
   </VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>1172,2727</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>1172,2647</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>sq_Search_Movie_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <sco:Collection x:TypeArguments="x:String">
@@ -115,7 +115,7 @@
       <AssemblyReference>System.Linq.Async</AssemblyReference>
     </sco:Collection>
   </TextExpression.ReferencesForImplementation>
-  <Sequence DisplayName="sq_Search_Movie" sap:VirtualizedContainerService.HintSize="1158,2662" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence DisplayName="sq_Search_Movie" sap:VirtualizedContainerService.HintSize="1158,2582" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <Sequence.Variables>
       <Variable x:TypeArguments="x:String" Default="sq_Search_Movie" Name="var_strNomeWorkflow" />
     </Sequence.Variables>
@@ -124,19 +124,19 @@
         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
-    <uix:NApplicationCard AttachMode="SingleWindow" CloseMode="Never" DisplayName="Use Browser Edge: Rotten Tomatoes: Movies | TV Shows | Movie Trailers | Reviews | Rotten Tomatoes" sap:VirtualizedContainerService.HintSize="1096,2574" sap2010:WorkflowViewState.IdRef="NApplicationCard_1" OpenMode="IfNotOpen" ScopeGuid="59c33ff0-d03a-4789-bda4-0fe5f1a92d6b" Version="V2" WindowResize="Maximize">
+    <uix:NApplicationCard AttachMode="SingleWindow" CloseMode="Never" DisplayName="Use Browser Edge: Rotten Tomatoes: Movies | TV Shows | Movie Trailers | Reviews | Rotten Tomatoes" sap:VirtualizedContainerService.HintSize="1096,2494" sap2010:WorkflowViewState.IdRef="NApplicationCard_1" OpenMode="IfNotOpen" ScopeGuid="59c33ff0-d03a-4789-bda4-0fe5f1a92d6b" Version="V2" WindowResize="Maximize">
       <uix:NApplicationCard.Body>
         <ActivityAction x:TypeArguments="x:Object">
           <ActivityAction.Argument>
             <DelegateInArgument x:TypeArguments="x:Object" Name="WSSessionData" />
           </ActivityAction.Argument>
-          <Sequence DisplayName="Fazer" sap:VirtualizedContainerService.HintSize="1062,2334" sap2010:WorkflowViewState.IdRef="Sequence_2">
+          <Sequence DisplayName="Fazer" sap:VirtualizedContainerService.HintSize="1062,2254" sap2010:WorkflowViewState.IdRef="Sequence_2">
             <sap:WorkflowViewStateService.ViewState>
               <scg:Dictionary x:TypeArguments="x:String, x:Object">
                 <x:Boolean x:Key="IsExpanded">True</x:Boolean>
               </scg:Dictionary>
             </sap:WorkflowViewStateService.ViewState>
-            <uix:NCheckState DisplayName="Check App State - 'Barra de Consulta'" sap:VirtualizedContainerService.HintSize="1000,699" sap2010:WorkflowViewState.IdRef="NCheckState_1" ScopeIdentifier="59c33ff0-d03a-4789-bda4-0fe5f1a92d6b" Timeout="30" Version="V3">
+            <uix:NCheckState DisplayName="Check App State - 'Barra de Consulta'" sap:VirtualizedContainerService.HintSize="1000,619" sap2010:WorkflowViewState.IdRef="NCheckState_1" ScopeIdentifier="59c33ff0-d03a-4789-bda4-0fe5f1a92d6b" Timeout="30" Version="V3">
               <uix:NCheckState.IfExists>
                 <ui:LogMessage DisplayName="LogMessage - Carregou Página Rotten" sap:VirtualizedContainerService.HintSize="334,143" sap2010:WorkflowViewState.IdRef="LogMessage_1" Level="Info" Message="[String.Format(&quot;{0} - Pagina Rotten Tomatoes carregou com sucesso.&quot;, var_strNomeWorkflow )]" />
               </uix:NCheckState.IfExists>
@@ -194,7 +194,7 @@
                       <OutArgument x:TypeArguments="x:Int32">[arg_out_intTomatometer]</OutArgument>
                     </Assign.To>
                     <Assign.Value>
-                      <InArgument x:TypeArguments="x:Int32">[Convert.ToInt32( System.Text.RegularExpressions.Regex.Match( var_strTomatometer, "(\d)*").Value )]</InArgument>
+                      <InArgument x:TypeArguments="x:Int32">[Convert.ToInt32(var_strTomatometer.Replace("%", "").Trim )]</InArgument>
                     </Assign.Value>
                   </Assign>
                   <uix:NGetText DisplayName="Get Text - 'Audience Score'" sap:VirtualizedContainerService.HintSize="434,189" sap2010:WorkflowViewState.IdRef="NGetText_2" ScopeIdentifier="59c33ff0-d03a-4789-bda4-0fe5f1a92d6b" TextString="[var_strAudience]" Version="V3">
@@ -207,7 +207,7 @@
                       <OutArgument x:TypeArguments="x:Int32">[arg_out_intAudience]</OutArgument>
                     </Assign.To>
                     <Assign.Value>
-                      <InArgument x:TypeArguments="x:Int32">[Convert.ToInt32( System.Text.RegularExpressions.Regex.Match( var_strAudience, "(\d)*").Value )]</InArgument>
+                      <InArgument x:TypeArguments="x:Int32">[Convert.ToInt32( var_strAudience.Replace("%", "").Trim )]</InArgument>
                     </Assign.Value>
                   </Assign>
                   <ui:LogMessage DisplayName="Log Message - Informações" sap:VirtualizedContainerService.HintSize="434,168" sap2010:WorkflowViewState.IdRef="LogMessage_2" Level="Info" Message="[String.Format(&quot;{0} - {1}: Tomatometer: {2}. Audience: {3}.&quot;, var_strNomeWorkflow, arg_in_strMovieName, var_strTomatometer, var_strAudience)]" />

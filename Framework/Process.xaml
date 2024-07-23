@@ -2,13 +2,13 @@
   <x:Members>
     <x:Property sap2010:Annotation.AnnotationText="Transaction item to be processed." Name="in_TransactionItem" Type="InArgument(sd:DataRow)" />
     <x:Property sap2010:Annotation.AnnotationText="Dictionary structure to store configuration data of the process (settings, constants and assets)." Name="in_Config" Type="InArgument(scg:Dictionary(x:String, x:Object))" />
-    <x:Property Name="arg_out_intAudience" Type="InArgument(x:Int32)" />
-    <x:Property Name="arg_out_intTomatometer" Type="InArgument(x:Int32)" />
+    <x:Property Name="arg_out_intAudience" Type="OutArgument(x:Int32)" />
+    <x:Property Name="arg_out_intTomatometer" Type="OutArgument(x:Int32)" />
   </x:Members>
   <VisualBasic.Settings>
     <x:Null />
   </VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>1172,820</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>1172,796</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>ProcessTransaction_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <scg:List x:TypeArguments="x:String" Capacity="50">
@@ -137,8 +137,8 @@
       <ui:InvokeWorkflowFile.Arguments>
         <InArgument x:TypeArguments="x:String" x:Key="arg_in_strMovieName">[in_TransactionItem.Item("Filme").ToString.Trim]</InArgument>
         <InArgument x:TypeArguments="x:String" x:Key="arg_in_strUrlRotten">[in_Config("urlRotten").ToString.Trim]</InArgument>
-        <InArgument x:TypeArguments="x:Int32" x:Key="arg_out_intTomatometer">[arg_out_intTomatometer]</InArgument>
-        <InArgument x:TypeArguments="x:Int32" x:Key="arg_out_intAudience">[arg_out_intAudience]</InArgument>
+        <OutArgument x:TypeArguments="x:Int32" x:Key="arg_out_intTomatometer">[arg_out_intTomatometer]</OutArgument>
+        <OutArgument x:TypeArguments="x:Int32" x:Key="arg_out_intAudience">[arg_out_intAudience]</OutArgument>
       </ui:InvokeWorkflowFile.Arguments>
     </ui:InvokeWorkflowFile>
     <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="354,164" sap2010:WorkflowViewState.IdRef="LogMessage_2" Level="[UiPath.Core.Activities.LogLevel.Info]" Message="[in_TransactionItem(0).ToString]" />

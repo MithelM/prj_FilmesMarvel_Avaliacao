@@ -6,7 +6,7 @@
   <VisualBasic.Settings>
     <x:Null />
   </VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>1172,2315</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>1172,2235</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>sq_Get_MovieQueue_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <sco:Collection x:TypeArguments="x:String">
@@ -114,7 +114,7 @@
       <AssemblyReference>System.Runtime.Numerics</AssemblyReference>
     </sco:Collection>
   </TextExpression.ReferencesForImplementation>
-  <Sequence DisplayName="sq_Get_MovieQueue" sap:VirtualizedContainerService.HintSize="1022,2250" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence DisplayName="sq_Get_MovieQueue" sap:VirtualizedContainerService.HintSize="1022,2170" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <Sequence.Variables>
       <Variable x:TypeArguments="x:String" Default="sq_Get_MovieQueue" Name="var_strNomeWorkflow" />
     </Sequence.Variables>
@@ -124,9 +124,9 @@
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
     <ui:LogMessage DisplayName="Log Message - Capturando Filmes" sap:VirtualizedContainerService.HintSize="960,173" sap2010:WorkflowViewState.IdRef="LogMessage_2" Level="Info" Message="[String.Format(&quot;{0} - Capturando Lista de Filmes.&quot;, var_strNomeWorkflow)]" />
-    <TryCatch DisplayName="Try Catch - Abre Wikipedia" sap:VirtualizedContainerService.HintSize="960,1825" sap2010:WorkflowViewState.IdRef="TryCatch_1">
+    <TryCatch DisplayName="Try Catch - Abre Wikipedia" sap:VirtualizedContainerService.HintSize="960,1745" sap2010:WorkflowViewState.IdRef="TryCatch_1">
       <TryCatch.Try>
-        <ui:RetryScope DisplayName="Retry Scope - Abre Wikipedia" sap:VirtualizedContainerService.HintSize="922,1565" sap2010:WorkflowViewState.IdRef="RetryScope_1">
+        <ui:RetryScope DisplayName="Retry Scope - Abre Wikipedia" sap:VirtualizedContainerService.HintSize="922,1485" sap2010:WorkflowViewState.IdRef="RetryScope_1" NumberOfRetries="3" RetryInterval="00:00:01">
           <ui:RetryScope.ActivityBody>
             <ActivityAction>
               <Sequence DisplayName="Abre Wikipedia" sap:VirtualizedContainerService.HintSize="880,1310" sap2010:WorkflowViewState.IdRef="Sequence_3">
